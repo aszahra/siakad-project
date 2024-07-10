@@ -67,6 +67,8 @@ class RuangController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $ruang = Ruang::findOrFail($id);
+        $ruang->delete();
+        return back()->with('message_delete', 'Data Ruang Sudah dihapus');
     }
 }

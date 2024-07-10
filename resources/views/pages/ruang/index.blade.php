@@ -100,5 +100,24 @@
                 }, ],
             });
         });
+
+        const ruangDelete = async (id, name) => {
+            let tanya = confirm(`Apakah anda yakin untuk menghapus ${name} ?`);
+            if (tanya) {
+                await axios.post(`/ruang/${id}`, {
+                        '_method': 'DELETE',
+                        '_token': $('meta[name="csrf-token"]').attr('content')
+                    })
+                    .then(function(response) {
+                        // Handle success
+                        location.reload();
+                    })
+                    .catch(function(error) {
+                        // Handle error
+                        alert('Error deleting record');
+                        console.log(error);
+                    });
+            }
+        }
     </script>
 </x-app-layout>

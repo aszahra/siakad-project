@@ -14,7 +14,7 @@ class Ruang extends Model
         'ruang',
     ];
 
-    protected $table = 'ruangs';
+    protected $table = 'ruang';
 
     public static function createCode()
     {
