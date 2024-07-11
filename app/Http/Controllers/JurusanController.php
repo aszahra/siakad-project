@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ruang;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
-class RuangController extends Controller
+class JurusanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $kode_ruang = Ruang::createCode();
-        return view('pages.ruang.index', compact('kode_ruang'));
+        $kode_jurusan = Jurusan::createCode();
+        return view('pages.jurusan.index', compact('kode_jurusan'));
     }
 
     /**
@@ -30,12 +30,12 @@ class RuangController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'kode_ruang' => $request->input('kode_ruang'),
-            'ruang' => $request->input('ruang')
+            'kode_jurusan' => $request->input('kode_jurusan'),
+            'jurusan' => $request->input('jurusan')
         ];
 
-        Ruang::create($data);
-        return redirect()->route('ruang.index');
+        Jurusan::create($data);
+        return redirect()->route('jurusan.index');
     }
 
     /**
@@ -60,17 +60,17 @@ class RuangController extends Controller
     public function update(Request $request, string $id)
     {
         $data = [
-            'kode_ruang' => $request->input('kode_ruang'),
-            'ruang' => $request->input('ruang'),
+            'kode_jurusan' => $request->input('kode_jurusan'),
+            'jurusan' => $request->input('jurusan'),
         ];
 
-        $ruang = Ruang::findOrFail($id);
+        $jurusan = jurusan::findOrFail($id);
 
-        $ruang->update($data);
+        $jurusan->update($data);
 
         return redirect()
-            ->route('ruang.index')
-            ->with('message', 'Data Ruang Sudah diupdate');
+            ->route('jurusan.index')
+            ->with('message', 'Data Jurusan Sudah diupdate');
     }
 
     /**
@@ -78,8 +78,8 @@ class RuangController extends Controller
      */
     public function destroy(string $id)
     {
-        $ruang = Ruang::findOrFail($id);
-        $ruang->delete();
-        return back()->with('message_delete', 'Data Ruang Sudah dihapus');
+        $jurusan = Jurusan::findOrFail($id);
+        $jurusan->delete();
+        return back()->with('message_delete', 'Data Jurusan Sudah dihapus');
     }
 }

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Ruang') }}
+            {{ __('Jurusan') }}
         </h2>
     </x-slot>
 
@@ -11,18 +11,18 @@
                 <div class="bg-white w-full dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div class="bg-slate-100 rounded-xl p-4">
-                            FORM TAMBAH RUANG
+                            FORM TAMBAH JURUSAN
                         </div>
                         <div>
-                            <form action="{{route('ruang.store') }}" method="post">
+                            <form action="{{route('jurusan.store') }}" method="post">
                                 @csrf
                                 <div class="my-5">
-                                    <label for="kode_ruang" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Ruang</label>
-                                    <input type="text" id="kode_ruang" name="kode_ruang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukan kode ruang disini.." value="{{$kode_ruang}}" readonly required />
+                                    <label for="kode_jurusan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode jurusan</label>
+                                    <input type="text" id="kode_jurusan" name="kode_jurusan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukan kode jurusan disini.." value="{{$kode_jurusan}}" readonly required />
                                 </div>
                                 <div class="mb-5">
-                                    <label for="ruang" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ruang</label>
-                                    <input type="text" id="ruang" name="ruang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukan ruang disini.." required />
+                                    <label for="jurusan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">jurusan</label>
+                                    <input type="text" id="jurusan" name="jurusan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukan jurusan disini.." required />
                                 </div>
                                 <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                             </form>
@@ -32,16 +32,16 @@
                 <div class="bg-white w-full dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <div class="bg-slate-100 rounded-xl p-4">
-                            DATA RUANG
+                            DATA JURUSAN
                         </div>
                         <div>
                             <div class="p-12" style="width:100%">
-                                <table class="table table-bordered" id="ruang-datatable">
+                                <table class="table table-bordered" id="jurusan-datatable">
                                     <thead>
                                         <tr>
                                             <th class="w-7">No.</th>
-                                            <th>Kode Ruang</th>
-                                            <th>Ruang</th>
+                                            <th>Kode Jurusan</th>
+                                            <th>Jurusan</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -69,15 +69,15 @@
                     @csrf
                     <div class="flex flex-col  p-4 space-y-6">
                         <div class="mb-5">
-                            <label for="kode_ruang" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode Ruang
+                            <label for="kode_jurusan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode jurusan
                                 <span class="text-red-500">*</span></label>
-                            <input type="text" id="kd_ruang" name="kode_ruang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukan Ruangan...." readonly />
+                            <input type="text" id="kd_jurusan" name="kode_jurusan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukan jurusanan...." readonly />
                             <span class="text-sm m-l text-red-500">{{ $errors->first('room') }}</span>
                         </div>
                         <div class="mb-5">
-                            <label for="ruang" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ruang
+                            <label for="jurusan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">jurusan
                                 <span class="text-red-500">*</span></label>
-                            <input type="text" id="nm_ruang" name="ruang" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukan Ruangan...." />
+                            <input type="text" id="nm_jurusan" name="jurusan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukan jurusanan...." />
                             <span class="text-sm m-l text-red-500">{{ $errors->first('room') }}</span>
                         </div>
                     </div>
@@ -92,14 +92,14 @@
     <script>
         $(document).ready(function() {
             console.log('RUN!');
-            $('#ruang-datatable').DataTable({
+            $('#jurusan-datatable').DataTable({
                 ajax: {
-                    url: 'api/ruang',
-                    dataSrc: 'ruang'
+                    url: 'api/jurusan',
+                    dataSrc: 'jurusan'
                 },
                 initComplete: function() {
                     // Menengahkan teks di semua sel pada header (baris pertama)
-                    $('#ruang-datatable thead th').css('text-align', 'center');
+                    $('#jurusan-datatable thead th').css('text-align', 'center');
                 },
                 columns: [{
                     data: 'no',
@@ -107,30 +107,30 @@
                         return `<div style="text-align:center">${meta.row + 1}.</div>`;;
                     }
                 }, {
-                    data: 'kode_ruang',
+                    data: 'kode_jurusan',
                     render: (data, type, row) => {
                         return data;
                     }
                 }, {
-                    data: 'ruang',
+                    data: 'jurusan',
                     render: (data, type, row) => {
                         return data;
                     }
                 }, {
                     data: {
                         id: 'id',
-                        ruang: 'ruang'
+                        jurusan: 'jurusan'
                     },
                     render: (data, type, row) => {
                         let editUrl =
                             `<button type="button" data-id="${data.id}"
-                                                        data-modal-target="sourceModal" data-kode_ruang="${data.kode_ruang}" data-ruang="${data.ruang}"
+                                                        data-modal-target="sourceModal" data-kode_jurusan="${data.kode_jurusan}" data-jurusan="${data.jurusan}"
                                                         onclick="editSourceModal(this)"
                                                         class="bg-amber-500 hover:bg-amber-600 px-3 py-1 rounded-md text-xs text-white">
                                                        <i class="fas fa-edit"></i>
                                                     </button>`;
                         let deleteUrl =
-                            `<button onclick="return ruangDelete('${data.id}','${data.ruang}')" class="bg-red-500 hover:bg-bg-red-300 px-3 py-1 rounded-md text-xs text-white"><i class="fas fa-trash"></i></button>`;
+                            `<button onclick="return jurusanDelete('${data.id}','${data.jurusan}')" class="bg-red-500 hover:bg-bg-red-300 px-3 py-1 rounded-md text-xs text-white"><i class="fas fa-trash"></i></button>`;
                         return `<div style="text-align:center">${editUrl} ${deleteUrl}</div>`;
                     }
                 }, ],
@@ -141,14 +141,14 @@
             const formModal = document.getElementById('formSourceModal');
             const modalTarget = button.dataset.modalTarget;
             const id = button.dataset.id;
-            const kode_ruang = button.dataset.kode_ruang
-            const ruang = button.dataset.ruang;
+            const kode_jurusan = button.dataset.kode_jurusan
+            const jurusan = button.dataset.jurusan;
             console.log(button.dataset);
-            let url = "{{ route('ruang.update', ':id') }}".replace(':id', id);
+            let url = "{{ route('jurusan.update', ':id') }}".replace(':id', id);
             let status = document.getElementById(modalTarget);
-            document.getElementById('title_source').innerText = `Update Ruang ${ruang}`;
-            document.getElementById('kd_ruang').value = kode_ruang;
-            document.getElementById('nm_ruang').value = ruang;
+            document.getElementById('title_source').innerText = `Update jurusan ${jurusan}`;
+            document.getElementById('kd_jurusan').value = kode_jurusan;
+            document.getElementById('nm_jurusan').value = jurusan;
 
             document.getElementById('formSourceButton').innerText = 'Simpan';
             document.getElementById('formSourceModal').setAttribute('action', url);
@@ -172,10 +172,10 @@
             status.classList.toggle('hidden');
         }
 
-        const ruangDelete = async (id, name) => {
+        const jurusanDelete = async (id, name) => {
             let tanya = confirm(`Apakah anda yakin untuk menghapus ${name} ?`);
             if (tanya) {
-                await axios.post(`/ruang/${id}`, {
+                await axios.post(`/jurusan/${id}`, {
                         '_method': 'DELETE',
                         '_token': $('meta[name="csrf-token"]').attr('content')
                     })

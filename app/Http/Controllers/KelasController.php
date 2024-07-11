@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ruang;
+use App\Models\Jurusan;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 
-class RuangController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $kode_ruang = Ruang::createCode();
-        return view('pages.ruang.index', compact('kode_ruang'));
+        $kode_kelas = Kelas::createCode();
+        $jurusan = Jurusan::all();
+        return view('pages.kelas.index', compact('kode_kelas'))->with([
+            'jurusan' => $jurusan
+        ]);        
     }
 
     /**
@@ -29,13 +33,7 @@ class RuangController extends Controller
      */
     public function store(Request $request)
     {
-        $data = [
-            'kode_ruang' => $request->input('kode_ruang'),
-            'ruang' => $request->input('ruang')
-        ];
-
-        Ruang::create($data);
-        return redirect()->route('ruang.index');
+        //
     }
 
     /**
@@ -59,18 +57,7 @@ class RuangController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = [
-            'kode_ruang' => $request->input('kode_ruang'),
-            'ruang' => $request->input('ruang'),
-        ];
-
-        $ruang = Ruang::findOrFail($id);
-
-        $ruang->update($data);
-
-        return redirect()
-            ->route('ruang.index')
-            ->with('message', 'Data Ruang Sudah diupdate');
+        //
     }
 
     /**
@@ -78,8 +65,6 @@ class RuangController extends Controller
      */
     public function destroy(string $id)
     {
-        $ruang = Ruang::findOrFail($id);
-        $ruang->delete();
-        return back()->with('message_delete', 'Data Ruang Sudah dihapus');
+        //
     }
 }
