@@ -33,7 +33,14 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'kode_kelas' => $request->input('kode_kelas'),
+            'kode_jurusan' => $request->input('jurusan'),
+            'kelas' => $request->input('kelas')
+        ];
+
+        Kelas::create($data);
+        return redirect()->route('kelas.index'); 
     }
 
     /**

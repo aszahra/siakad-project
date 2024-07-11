@@ -22,6 +22,11 @@ class Jurusan extends Model
         $latestCodeNumber = intval(substr($latestCode, 2));
         $nextCodeNumber = $latestCodeNumber ? $latestCodeNumber + 1 : 1;
         $formattedCodeNumber = sprintf("%05d", $nextCodeNumber);
-        return 'KR' . $formattedCodeNumber;
+        return 'JR' . $formattedCodeNumber;
+    } 
+
+    public function kelas()
+    {
+        return $this->hasMany(Kelas::class, 'kode_kelas');
     } 
 }

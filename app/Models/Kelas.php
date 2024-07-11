@@ -23,6 +23,11 @@ class Kelas extends Model
         $latestCodeNumber = intval(substr($latestCode, 2));
         $nextCodeNumber = $latestCodeNumber ? $latestCodeNumber + 1 : 1;
         $formattedCodeNumber = sprintf("%05d", $nextCodeNumber);
-        return 'KR' . $formattedCodeNumber;
+        return 'KL' . $formattedCodeNumber;
+    } 
+
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class, 'kode_jurusan', 'kode_jurusan');
     } 
 }
