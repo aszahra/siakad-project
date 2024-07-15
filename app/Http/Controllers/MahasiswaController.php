@@ -36,7 +36,23 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'nim' => $request->input('nim'),
+            'nik' => $request->input('nik'),
+            'tempat_lahir' => $request->input('tempat_lahir'),
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
+            'jk' => $request->input('jk'),
+            'dusun' => $request->input('dusun'),
+            'rtrw' => $request->input('rtrw'),
+            'kelurahan' => $request->input('kelurahan'),
+            'kecamatan' => $request->input('kecamatan'),
+            'nik' => $request->input('nik'),
+            'nik' => $request->input('nik'),
+            'nik' => $request->input('nik'),
+        ];
+
+        Jurusan::create($data);
+        return redirect()->route('jurusan.index');
     }
 
     /**
