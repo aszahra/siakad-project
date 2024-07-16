@@ -51,8 +51,8 @@ class MahasiswaController extends Controller
             'nik' => $request->input('nik'),
         ];
 
-        Jurusan::create($data);
-        return redirect()->route('jurusan.index');
+        Mahasiswa::create($data);
+        return redirect()->route('mahasiswa.index');
     }
 
     /**

@@ -34,15 +34,15 @@ class Mahasiswa extends Model
 
     public static function createCode()
     {
-        $latestCode = self::orderBy('kode_jurusan', 'desc')->value('kode_kelas');
+        $latestCode = self::orderBy('nim', 'desc')->value('nim');
         $latestCodeNumber = intval(substr($latestCode, 2));
         $nextCodeNumber = $latestCodeNumber ? $latestCodeNumber + 1 : 1;
         $formattedCodeNumber = sprintf("%05d", $nextCodeNumber);
         return 'KL' . $formattedCodeNumber;
     } 
 
-    public function jurusan()
+    public function kelas()
     {
-        return $this->belongsTo(Jurusan::class, 'kode_jurusan', 'kode_jurusan');
+        return $this->belongsTo(Kelas::class, 'kode_kelas', 'kode_kelas');
     } 
 }

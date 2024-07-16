@@ -30,8 +30,23 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         $data = [
-            'kode_jurusan' => $request->input('kode_jurusan'),
-            'jurusan' => $request->input('jurusan')
+            'nim' => $request->input('nim'),
+            'nik' => $request->input('nik'),
+            'tempat_lahir' => $request->input('tempat_lahir'),
+            'tanggal_lahir' => $request->input('tanggal_lahir'),
+            'jk' => $request->input('jk'),
+            'dusun' => $request->input('dusun'),
+            'rtrw' => $request->input('rtrw'),
+            'kelurahan' => $request->input('kelurahan'),
+            'kecamatan' => $request->input('kecamatan'),
+            'kota' => $request->input('kota'),
+            'kode_pos' => $request->input('kode_pos'),
+            'no_hp' => $request->input('no_hp'),
+            'pendidikan_terakhir' => $request->input('pendidikan_terakhir'),
+            'asal_sekolah' => $request->input('asal_sekolah'),
+            'jurusan_sekolah' => $request->input('jurusan_sekolah'),
+            'tahun_lulus' => $request->input('tahun_lulus'),
+            'asal_sekolah' => $request->input('asal_sekolah'),
         ];
 
         Jurusan::create($data);
