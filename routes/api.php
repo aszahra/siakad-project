@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/ruang', [RuangAPIController::class, 'get_all'])->name('ruang.get');
 Route::get('/jurusan', [JurusanAPIController::class, 'get_all'])->name('jurusan.get');
 Route::get('/kelas', [KelasAPIController::class, 'get_all'])->name('kelas.get');
-Route::get('/mahasiswa', [MahasiswaAPIController::class, 'get_all'])->name('mahasiswa.get');
 
 Route::get('/user', function (Request $request) {
     return $request->user();

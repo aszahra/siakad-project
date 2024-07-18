@@ -27,7 +27,5 @@ Route::resource('jurusan',JurusanController::class)->middleware(['auth']);
 
 Route::resource('kelas',KelasController::class)->middleware(['auth']);
 
-Route::resource('mahasiswa',MahasiswaController::class)->middleware(['auth']);
-
 
 require __DIR__.'/auth.php';
